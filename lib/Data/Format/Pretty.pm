@@ -49,7 +49,7 @@ __END__
 
 In your program:
 
- use Data::Format::Pretty qw(format_pretty);
+ use Data::Format::Pretty qw(format_pretty print_pretty);
 
  # automatically choose an appropriate formatter
  print format_pretty($data);
@@ -59,6 +59,15 @@ In your program:
 
  # specify formatter option(s)
  print format_pretty($data, {module=>'Console', interactive=>1});
+
+ # shortcut for printing to output
+ print_pretty($data);
+
+
+ # ppr() is alias for print_pretty(), exported automatically. suitable for when
+ # debugging.
+ use Data::Format::Pretty;
+ prr [1, 2, 3];
 
 
 =head1 DESCRIPTION
