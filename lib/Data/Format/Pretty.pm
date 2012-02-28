@@ -67,7 +67,7 @@ In your program:
  # ppr() is alias for print_pretty(), exported automatically. suitable for when
  # debugging.
  use Data::Format::Pretty;
- prr [1, 2, 3];
+ ppr [1, 2, 3];
 
 
 =head1 DESCRIPTION
