@@ -6,6 +6,7 @@ use warnings;
 
 use Module::Load;
 use Module::Loaded;
+use Web::Detect qw(detect_web);
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -20,7 +21,7 @@ sub format_pretty {
     my %opts = $opts0 ? %$opts0 : ();
     my $module = $opts{module};
     if (!$module) {
-        if ($ENV{GATEWAY_INTERFACE} || $ENV{PLACK_ENV}) {
+        if (detect_web()) {
             $module = 'HTML';
         } else {
             $module = 'Console';
@@ -95,8 +96,8 @@ return the result. Options:
 Select the formatter module. It will be prefixed with "Data::Format::Pretty::".
 
 Currently if unspecified the default is 'Console', or 'HTML' if CGI/PSGI/plackup
-environment is detected. In the future, more sophisticated detection logic will
-be used.
+environment is detected (using L<Web::Detect>). In the future, more
+sophisticated detection logic will be used.
 
 =back
 

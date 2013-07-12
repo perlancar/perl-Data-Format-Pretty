@@ -1,5 +1,8 @@
-#!perl -Tw
+#!perl
+
+use 5.010;
 use strict;
+use warnings;
 
 use Data::Format::Pretty qw(format_pretty);
 use Test::More;
